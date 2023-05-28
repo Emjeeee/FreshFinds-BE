@@ -1,0 +1,27 @@
+GET http://localhost:5000/users
+
+###
+GET http://localhost:5000/users/64737031bfff078f106db05d
+
+
+
+###
+POST http://localhost:5000/users
+Content-Type:  application/json
+
+{
+    "username" : "Nouwel Natahanel",
+    "email" : "nouwel@gmail.com",
+    "password" : "wh1teman"
+}
+
+###
+
+PATCH http://localhost:5000/users/64737031bfff078f106db05d
+Content-Type:  application/json
+
+{
+    "username" : "Julius Caesar",
+    "email" : "julius@gmail.com",
+    "password" : "juanlius"
+}
