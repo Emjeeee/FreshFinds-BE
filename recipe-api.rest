@@ -1,3 +1,7 @@
+GET http://localhost:5000/recipes
+
+###
+
 POST http://localhost:5000/recipes
 Content-Type: multipart/form-data; boundary=boundary1
 
@@ -22,6 +26,6 @@ Lastly, put them together.
 Content-Disposition: form-data; name="image"; filename="image.jpg"
 Content-Type: image/jpeg
 
-'./Assers/Salmon_Sushi.jpg'
+'./Assets/Salmon_Sushi.jpg'
 
 --boundary1--

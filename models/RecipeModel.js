@@ -30,3 +30,7 @@ const Recipe = mongoose.Schema({
         ref : "Category",
     },
 });
+
+const Recipe = mongoose.model("Recipe", RecipeSchema);
+
+export default Recipe;
