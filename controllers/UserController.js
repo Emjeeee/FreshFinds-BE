@@ -41,12 +41,10 @@ export const saveUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const updatedUser = await user.updateOne({_id:req.params.id}, {$set: req.body});
-        // set is for request data to uodate a new one
+        const updatedUser = await User.updateOne({ _id: req.params.id }, { $set: req.body });
         res.status(201).json(updatedUser);
-    }
-    catch (error) {
-        res.status(400).json({message: error.message});
+    } catch (error) {
+        res.status(400).json({ message: error.message });
     }
 }
 
@@ -54,10 +52,9 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     try {
-        const deletedUser = await user.deleteOne({_id:req.params.id});
+        const deletedUser = await User.deleteOne({ _id: req.params.id });
         res.status(201).json(deletedUser);
-    }
-    catch (error) {
-        res.status(400).json({message: error.message});
+    } catch (error) {
+        res.status(400).json({ message: error.message });
     }
 }
