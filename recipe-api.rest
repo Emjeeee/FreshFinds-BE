@@ -1,0 +1,27 @@
+POST http://localhost:5000/recipes
+Content-Type: multipart/form-data; boundary=boundary1
+
+--boundary1
+Content-Disposition: form-data; name="recipe_title"
+
+Salmon Sushi
+
+--boundary1
+Content-Disposition: form-data; name="description"
+
+This is a sushi that has salmon on top.
+
+--boundary1
+Content-Disposition: form-data; name="instructions"
+
+First, slice the salmon.
+Second, cook Japanese rice.
+Lastly, put them together.
+
+--boundary1
+Content-Disposition: form-data; name="image"; filename="image.jpg"
+Content-Type: image/jpeg
+
+'./Assers/Salmon_Sushi.jpg'
+
+--boundary1--

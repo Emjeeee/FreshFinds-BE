@@ -17,7 +17,11 @@ const User = mongoose.Schema({
     type : Date,
     default : Date.now,
    },
-});
+
+recipe:[{
+   type: mongoose.Schema.Types.ObjectId,
+   ref: "Recipe",
+}],});
 
 const UserModel = mongoose.model("Users", User);
 
