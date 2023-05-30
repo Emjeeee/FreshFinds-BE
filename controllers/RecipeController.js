@@ -1,5 +1,8 @@
 import Recipe from "../models/RecipeModel.js";
-import Upload from "../models/UploadModel.js";
+// import Upload from "../models/UploadModel.js";
+import { default as Upload } from "../models/UploadModel.js";
+
+import multer from "multer";
 
 // Function to Get all Recipes
 
@@ -72,4 +75,5 @@ export const deleteRecipe = async (req, res) => {
 
 
 
-export const uploadImage = upload.single("image");
+const upload = multer().single("image");
+export { upload as uploadImage };
