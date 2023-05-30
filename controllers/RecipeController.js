@@ -1,6 +1,5 @@
 import Recipe from "../models/RecipeModel.js";
-// import Upload from "../models/UploadModel.js";
-import { default as Upload } from "../models/UploadModel.js";
+import Upload from "../models/UploadModel.js";
 
 import multer from "multer";
 

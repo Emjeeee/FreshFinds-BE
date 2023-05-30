@@ -28,5 +28,4 @@ conn.once('open', () => {
     });
 });
 
-
-export default upload;
+export { storage, upload };
