@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import UserRoute from "./routes/UserRoute.js";
-import RecipeRoute from "./routes/RecipeRoute.js";
+import UserRoute from "./router/UserRoute.js";
+import RecipeRoute from "./router/RecipeRoute.js";
 import { storage, upload } from "./middleware/storageConfig.js";
 
 
@@ -19,4 +19,4 @@ app.use(UserRoute);
 app.use(RecipeRoute);
 app.use(upload.single("image"));
 
-app.listen(5000, ()=> console.log('Server is Running!'));
+app.listen(5001, ()=> console.log('Server is Running!'));

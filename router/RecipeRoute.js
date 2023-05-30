@@ -1,6 +1,7 @@
 import express from "express";
 import { getRecipes, getRecipeById, saveRecipe, updateRecipe, deleteRecipe } from "../controllers/RecipeController.js";
-import upload from "../middleware/storageConfig.js";
+import { upload } from "../middleware/storageConfig.js";
+
 
 const router = express.Router();
 
