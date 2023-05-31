@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Forum = mongoose.Schema({
+const ForumSchema = mongoose.Schema({
     title: {
         type : String,
         required : true
@@ -16,6 +16,6 @@ const Forum = mongoose.Schema({
     }],
 });
 
-const ForumModel = mongoose.model("Forum", Forum);
+const ForumModel = mongoose.model("Forum", ForumSchema);
 
 export default ForumModel;

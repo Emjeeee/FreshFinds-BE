@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import UserRoute from "./router/UserRoute.js";
 import RecipeRoute from "./router/RecipeRoute.js";
+import ForumRoute from "./router/ForumRoute.js";
 import multer from "multer";
 import path from "path";
 import ejs from "ejs";
@@ -26,6 +27,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/users", UserRoute);
 app.use("/recipes", RecipeRoute);
+app.use("/forum", ForumRoute);
 
 // Serve static files from the "uploads" directory
 app.use(express.static(path.join("uploads")));

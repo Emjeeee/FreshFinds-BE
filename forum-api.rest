@@ -1,0 +1,9 @@
+GET http://localhost:5000/forum
+
+###
+POST http://localhost:5000/forum
+Content-Type: application/json
+
+{
+    "title" : "Does Chinese Food 🍜 always contains pork in it? Or we can change with other ingridients 🤔"
+}

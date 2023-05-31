@@ -1,4 +1,4 @@
-import Forum from "../models/ForumModel";
+import Forum from "../models/ForumModel.js";
 
 // get all Forum data
 
