@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const UploadSchema = mongoose.Schema({
-  filename: String,
-  contentType: String,
+const uploadSchema = mongoose.Schema({
+  filename : String,
+  contentType : String,
 });
 
-const UploadModel = mongoose.model("Upload", UploadSchema);
+const UploadModel = mongoose.model("Upload", uploadSchema);
 
 export default UploadModel;

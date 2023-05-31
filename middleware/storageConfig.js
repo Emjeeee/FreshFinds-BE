@@ -17,7 +17,7 @@ const storage = new GridFsStorage({
 });
 
 // Create multer middleware
-const uploadImage = multer({ storage });
+const upload = multer({ storage });
 
 // Check if the "uploads" bucket exists, and create it if not
 const conn = mongoose.createConnection('mongodb://localhost:27017/FreshFinds', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -30,4 +30,4 @@ conn.once('open', () => {
     });
 });
 
-export { storage, uploadImage };
+export { storage, upload };
