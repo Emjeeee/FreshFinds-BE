@@ -29,3 +29,19 @@ Content-Type: image/jpeg
 './Assets/Salmon_Sushi.jpg'
 
 --boundary1--
+###
+
+GET http://localhost:5000/recipes/64770991780f9367e4951b33
+
+###
+PATCH http://localhost:5000/recipes/6476b911c764d2ffe3cd7419
+Content-Type: application/json
+
+{
+    "recipe_title" : "Tuna Sushi",
+    "description" : "This is Tuna Sushi",
+    "instructions" : "Find it yourself"
+}
+
+###
+DELETE http://localhost:5000/recipes/64770820163cf86d84c6c5f0

@@ -1,33 +1,41 @@
+import path from "path";
+import express from "express";
 import multer from "multer";
-import pkg from 'multer-gridfs-storage';
-const {GridFsStorage} = pkg;
-import mongoose from "mongoose";
 
-// Create storage engine
+const app = express();
 
-const storage = new GridFsStorage({
-  url: 'mongodb://localhost:27017/FreshFinds',
-  options: { useNewUrlParser: true, useUnifiedTopology: true },
-  file: (req, file) => {
-    return {
-      bucketName: "uploads",
-      filename: file.originalname,
-    };
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    // Update the destination path to an absolute path
+    return cb(null, path.resolve(__dirname, "../uploads"));
   },
+  filename: function(req, file, cb) {
+    return cb(null, `${Date.now()}-${file.originalname}`);
+  }
 });
 
-// Create multer middleware
 const upload = multer({ storage });
 
-// Check if the "uploads" bucket exists, and create it if not
-const conn = mongoose.createConnection('mongodb://localhost:27017/FreshFinds', { useNewUrlParser: true, useUnifiedTopology: true });
-conn.once('open', () => {
-  conn.db.listCollections({ name: 'uploads' })
-    .next((err, collinfo) => {
-      if (!collinfo) {
-        conn.db.createCollection('uploads');
-      }
-    });
+app.set("view engine", "ejs");
+app.set("views", path.resolve("../views"));
+
+// Use multer middleware for handling file uploads
+app.use(upload.array("files"));
+
+// Encode URL
+app.use(express.urlencoded({ extended: false }));
+
+// Route for the root URL
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
 });
 
-export { storage, upload };
+// Route for file upload
+app.post("/upload", (req, res) => {
+  console.log(req.body);
+  console.log(req.file);
+
+  return res.redirect("/");
+});
+
+export default app;
