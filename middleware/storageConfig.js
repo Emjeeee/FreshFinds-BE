@@ -1,8 +1,10 @@
 import multer from "multer";
-import GridFsStorage from "multer-gridfs-storage";
+import pkg from 'multer-gridfs-storage';
+const {GridFsStorage} = pkg;
 import mongoose from "mongoose";
 
 // Create storage engine
+
 const storage = new GridFsStorage({
   url: 'mongodb://localhost:27017/FreshFinds',
   options: { useNewUrlParser: true, useUnifiedTopology: true },
