@@ -5,5 +5,13 @@ POST http://localhost:5000/forum
 Content-Type: application/json
 
 {
-    "title" : "Does Chinese Food 🍜 always contains pork in it? Or we can change with other ingridients 🤔"
+    "user": "64736feebfff078f106db05b",
+    "content": "Does Chinese Food 🍜 always contain pork in it? Or can we change it with other ingredients? 🤔"
 }
+
+###
+
+GET http://localhost:5000/forum/64789696a8c6283563e4c2b4
+
+###
+DELETE http://localhost:5000/forum/64789696a8c6283563e4c2b4

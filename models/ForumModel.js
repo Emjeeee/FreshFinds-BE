@@ -1,21 +1,23 @@
 import mongoose from "mongoose";
+import User from "./UserModel.js";
 
 const ForumSchema = mongoose.Schema({
-    title: {
-        type : String,
-        required : true
-    } ,
-    created_at: {
-        type : Date,
-        default : Date.now,
-    },
-
-    user:[{
-        type : mongoose.Schema.Types.ObjectId,
-        ref: "User",
-    }],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Users", // Update the reference to match the model name "Users"
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  image: String,
+  created_at: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-const ForumModel = mongoose.model("Forum", ForumSchema);
+const Forum = mongoose.model("Forum", ForumSchema);
 
-export default ForumModel;
+export default Forum;

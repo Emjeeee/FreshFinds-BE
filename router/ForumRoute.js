@@ -3,10 +3,10 @@ import { getForum, getForumById, saveForum, updateForum, deleteForum } from "../
 
 const router = express.Router();
 
-router.get("/forum", getForum);
-router.get("/forum/:id", getForumById);
-router.post("/forum", saveForum);
-router.patch("/forum/:id", updateForum);
-router.delete("/forum/:id", deleteForum);
+router.get("/", getForum);
+router.get("/:id", getForumById);
+router.post("/", saveForum);
+router.patch("/:id", updateForum);
+router.delete("/:id", deleteForum);
 
 export default router;

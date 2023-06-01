@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 // Mount UserRoute
-app.use("/users", UserRoute);
+app.use("/", UserRoute);
 
 // Mount RecipeRoute
 app.use("/recipes", RecipeRoute);
