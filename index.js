@@ -25,8 +25,14 @@ db.once('open', () => console.log('Database Connected!'));
 app.use(cors());
 
 app.use(express.json());
+
+// Mount UserRoute
 app.use("/users", UserRoute);
+
+// Mount RecipeRoute
 app.use("/recipes", RecipeRoute);
+
+// Mount ForumRoute
 app.use("/forum", ForumRoute);
 
 // Serve static files from the "uploads" directory

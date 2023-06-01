@@ -32,10 +32,10 @@ Content-Type: image/jpeg
 
 ###
 
-GET http://localhost:5000/recipes/6477116b5492ea52c9ac3b69
+GET http://localhost:5000/recipes/647719cdce73505438464d66
 
 ###
-PATCH http://localhost:5000/recipes/6476b911c764d2ffe3cd7419
+PATCH http://localhost:5000/recipes/647719cdce73505438464d64
 Content-Type: application/json
 
 {
@@ -45,4 +45,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/recipes/64771982aa8a0b366caa979d
+DELETE http://localhost:5000/recipes/647719cdce73505438464d64
