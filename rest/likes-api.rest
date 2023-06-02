@@ -1,0 +1,13 @@
+GET http://localhost:5000/likes
+
+###
+POST http://localhost:5000/likes
+Content-Type: application/json
+
+{
+    "forum": "647a438c9c1c6fe164ddb71e",
+    "likeCount": 2
+}
+
+###
+DELETE http://localhost:5000/likes

@@ -1,23 +1,33 @@
-import mongoose from "mongoose";
-import User from "./UserModel.js";
+import mongoose from 'mongoose';
 
-const ForumSchema = mongoose.Schema({
+const { Schema } = mongoose;
+
+const ForumSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Users", // Update the reference to match the model name "Users"
-    required: true
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   },
   content: {
     type: String,
-    required: true
+    required: true,
   },
-  image: String,
   created_at: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
 });
 
-const Forum = mongoose.model("Forum", ForumSchema);
+const Forum = mongoose.model('Forum', ForumSchema);
 
 export default Forum;

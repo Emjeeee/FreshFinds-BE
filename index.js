@@ -5,6 +5,7 @@ import UserRoute from "./router/UserRoute.js";
 import RecipeRoute from "./router/RecipeRoute.js";
 import ForumRoute from "./router/ForumRoute.js";
 import LikesRoute from "./router/LikesRoute.js";
+import CommentRoute from "./router/CommentRoute.js";
 import multer from "multer";
 import path from "path";
 import ejs from "ejs";
@@ -38,6 +39,9 @@ app.use("/forum", ForumRoute);
 
 // Mount LikesRoute
 app.use("/likes", LikesRoute);
+
+// Mount CommentRoute
+app.use("/comment", CommentRoute);
 
 // Serve static files from the "uploads" directory
 app.use(express.static(path.join("uploads")));

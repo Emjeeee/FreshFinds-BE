@@ -1,8 +1,7 @@
 GET http://localhost:5000/users
 
 ###
-GET http://localhost:5000/users/64737031bfff078f106db05d
-
+GET http://localhost:5000/users/64742c93ee344bebb1d14da4
 
 
 
@@ -18,7 +17,7 @@ Content-Type:  application/json
 
 ###
 
-PATCH http://localhost:5000/users/64737031bfff078f106db05d
+PATCH http://localhost:5000/users/64742c93ee344bebb1d14da4
 Content-Type:  application/json
 
 {
@@ -28,4 +27,14 @@ Content-Type:  application/json
 }
 
 ###
-DELETE http://localhost:5000/users/64742e57ecd2e3f6873eaf3b
+DELETE http://localhost:5000/users/64742c93ee344bebb1d14da4
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username" : "Juan Nussian",
+    "email" : "ju1ah@gmail.com",
+    "password" : "jul1riow"
+}
