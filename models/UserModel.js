@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-const User = mongoose.Schema({
+const { Schema } = mongoose;
+
+const UserSchema = new Schema({
   username: {
     type: String,
     required: true
@@ -18,11 +20,11 @@ const User = mongoose.Schema({
     default: Date.now,
   },
   recipe: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Recipe",
   }],
 });
 
-const UserModel = mongoose.model("Users", User);
+const User = mongoose.model("User", UserSchema);
 
-export default UserModel;
+export default User;

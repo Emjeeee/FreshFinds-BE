@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import User from "./UserModel.js";
 
 const { Schema } = mongoose;
 
@@ -20,12 +21,6 @@ const ForumSchema = new Schema({
     type: Number,
     default: 0,
   },
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Comment',
-    },
-  ],
 });
 
 const Forum = mongoose.model('Forum', ForumSchema);

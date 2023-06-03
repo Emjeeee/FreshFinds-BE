@@ -1,19 +1,18 @@
-import express from "express";
-import Comment from "../models/CommentModel.js";
+import express from 'express';
 import {
-  getComment,
-  getCommentById,
-  saveComment,
+  getComments,
+  getCommentsByUserId,
+  createComment,
   updateComment,
-  deleteComment
-} from "../controllers/CommentController.js";
+  deleteComment,
+} from '../controllers/CommentController.js';
 
 const router = express.Router();
 
-router.get("/", getComment);
-router.get("/:id", getCommentById);
-router.post("/", saveComment);
-router.patch("/:id", updateComment);
-router.delete("/:id", deleteComment);
+router.get('/', getComments);
+router.get('/:userId', getCommentsByUserId);
+router.post('/', createComment);
+router.patch('/:commentId', updateComment);
+router.delete('/:commentId', deleteComment);
 
 export default router;

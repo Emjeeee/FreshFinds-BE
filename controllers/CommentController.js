@@ -1,63 +1,75 @@
-import Comment from "../models/CommentModel.js";
+import Comment from '../models/CommentModel.js';
+import User from '../models/UserModel.js';
 
-// Get all Comment data
-export const getComment = async (req, res) => {
+// Get all comments
+export const getComments = async (req, res) => {
   try {
-    const comments = await Comment.find().populate("forum");
+    const comments = await Comment.find().populate('user', 'username email created_at');
     res.json(comments);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Get Comment data by ID
-export const getCommentById = async (req, res) => {
+// Get comments by user ID
+export const getCommentsByUserId = async (req, res) => {
+  const { userId } = req.params;
+
   try {
-    const comment = await Comment.findById(req.params.id).populate("forum");
-    res.json(comment);
+    const comments = await Comment.find({ user: userId }).populate('user', 'username email created_at');
+    res.json(comments);
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
-export const saveComment = async (req, res) => {
-    const { user, content, likes, comments } = req.body;
-    const comment = new Comment({
-      user,
-      content,
-      likes,
-      comments,
-    });
-    try {
-      const insertedComment = await comment.save();
-      res.status(201).json(insertedComment);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  };
-  
-  
-  
+// Create a new comment
+export const createComment = async (req, res) => {
+  const { user, commentContent } = req.body;
 
-// Update a Comment
-export const updateComment = async (req, res) => {
   try {
-    const updatedComment = await Comment.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.status(201).json(updatedComment);
+    const existingUser = await User.findById(user);
+    if (!existingUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const comment = new Comment({
+      user: existingUser._id,
+      commentContent,
+    });
+
+    const createdComment = await comment.save();
+    res.status(201).json(createdComment);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
 
-// Delete a Comment
-export const deleteComment = async (req, res) => {
+// Update a comment
+export const updateComment = async (req, res) => {
+  const { commentId } = req.params;
+  const { commentContent } = req.body;
+
   try {
-    const deletedComment = await Comment.findByIdAndDelete(req.params.id);
-    res.status(201).json(deletedComment);
+    const updatedComment = await Comment.findByIdAndUpdate(
+      commentId,
+      { commentContent },
+      { new: true }
+    );
+
+    res.json(updatedComment);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+// Delete a comment
+export const deleteComment = async (req, res) => {
+  const { commentId } = req.params;
+
+  try {
+    const deletedComment = await Comment.findByIdAndDelete(commentId);
+    res.json(deletedComment);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

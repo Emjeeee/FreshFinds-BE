@@ -1,21 +1,23 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import User from './UserModel.js';
 
 const { Schema } = mongoose;
 
 const CommentSchema = new Schema({
-  forum: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "Forum",
+    ref: 'User',
   },
   commentContent: {
     type: String,
+    required: true,
   },
   created_at: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-const Comment = mongoose.model("Comment", CommentSchema);
+const Comment = mongoose.model('Comment', CommentSchema);
 
 export default Comment;

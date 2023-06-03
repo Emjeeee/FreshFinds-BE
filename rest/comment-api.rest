@@ -5,10 +5,13 @@ POST http://localhost:5000/comment
 Content-Type: application/json
 
 {
-  "forum": "647a2b9a37fd75e865a2af02",
+  "user": "64749b50b5c500cff874c098",
   "commentContent": "Wow that looks so delicious! Please hand me the Recipes 🥩"
 }
 
 
 ###
-DELETE http://localhost:5000/comment/647a2c9727eb783e30dff383
+DELETE http://localhost:5000/comment/647b6be83d54be44c08bd7f6
+
+###
+
