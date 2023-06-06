@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import LoginRoute from "./router/LoginRoute.js";
 import UserRoute from "./router/UserRoute.js";
 import RecipeRoute from "./router/RecipeRoute.js";
 import ForumRoute from "./router/ForumRoute.js";
@@ -10,7 +11,7 @@ import path from "path";
 import ejs from "ejs";
 
 const app = express();
-const port = 5000;
+const port = 5001;
 
 // Connect to MongoDB database
 mongoose.connect('mongodb://localhost:27017/FreshFinds', {

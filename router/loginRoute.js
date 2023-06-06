@@ -1,10 +1,7 @@
-// const router = require('express').Router();
-// const loginController = require('../controllers').login;
-// const verifyUser = require('../configs/verify');
+const express = require("express");
+const router = express.Router();
+const { login } = require("./Authentication/UserAuth");
 
-// router.get('/', verifyUser.isLogout, loginController.login);
-// router.get('/logout', loginController.logout);
+router.route("/LoginRoute").post(login);
 
-// router.post('/auth', loginController.loginAuth);
-
-// module.exports = router;
+module.exports = router;
