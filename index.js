@@ -31,6 +31,9 @@ app.use(express.json());
 // Mount UserRoute
 app.use("/", UserRoute);
 
+// Mount LoginRoute
+app.use("/login", LoginRoute);
+
 // Mount RecipeRoute
 app.use("/recipes", RecipeRoute);
 
