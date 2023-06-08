@@ -15,4 +15,14 @@ Content-Type: application/json
 GET http://localhost:5000/ingredients/648124f90fb46a454d265099
 
 ###
+PATCH http://localhost:5000/ingredients/648124f90fb46a454d265099
+Content-Type: application/json
+
+{
+  "recipe" : "648121f7262ce3fb3f313367",
+  "name" : "Bawang Goyeng",
+  "quantity" : 10
+}
+
+###
 DELETE http://localhost:5000/ingredients/648120a1696bc2ea448f4873
