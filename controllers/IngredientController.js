@@ -2,25 +2,27 @@ import Ingredient from "../models/IngredientModel.js";
 import Recipe from "../models/RecipeModel.js";
 
 export const getIngredient = async (req, res) => {
-  try {
-    const ingredients = await Ingredient.find();
-    res.json(ingredients);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    try {
+      const ingredients = await Ingredient.find().populate('recipe');
+      res.json(ingredients);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
 
 export const getIngredientById = async (req, res) => {
-  try {
-    const ingredient = await Ingredient.findById(req.params.id);
-    if (!ingredient) {
-      return res.status(404).json({ message: "Ingredient not found" });
+    try {
+      const ingredient = await Ingredient.findById(req.params.id).populate('recipe');
+      if (!ingredient) {
+        return res.status(404).json({ message: 'Ingredient not found' });
+      }
+      res.json(ingredient);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    res.json(ingredient);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+  };
+  
 
 export const saveIngredient = async (req, res) => {
     try {
