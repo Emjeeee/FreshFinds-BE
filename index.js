@@ -1,17 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import LoginRoute from "./router/LoginRoute.js";
 import UserRoute from "./router/UserRoute.js";
 import RecipeRoute from "./router/RecipeRoute.js";
 import ForumRoute from "./router/ForumRoute.js";
 import CommentRoute from "./router/CommentRoute.js";
+import IngredientRoute from "./router/IngredientRoute.js";
 import multer from "multer";
 import path from "path";
 import ejs from "ejs";
 
 const app = express();
-const port = 5001;
+const port = 5000;
 
 // Connect to MongoDB database
 mongoose.connect('mongodb://localhost:27017/FreshFinds', {
@@ -31,9 +31,6 @@ app.use(express.json());
 // Mount UserRoute
 app.use("/", UserRoute);
 
-// Mount LoginRoute
-app.use("/login", LoginRoute);
-
 // Mount RecipeRoute
 app.use("/recipes", RecipeRoute);
 
@@ -42,6 +39,9 @@ app.use("/forum", ForumRoute);
 
 // Mount CommentRoute
 app.use("/comment", CommentRoute);
+
+// Mount IngredientRoute
+app.use("/ingredients", IngredientRoute);
 
 // Serve static files from the "uploads" directory
 app.use(express.static(path.join("uploads")));
